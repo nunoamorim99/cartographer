@@ -77,13 +77,6 @@ Claude Code. PDF generation needs the Python packages `markdown` and `weasyprint
 
 Single source of truth: the skill lives once, at `skills/cartographer/`. The plugin is this repository, so the top-level `skills/` and `commands/` folders *are* the plugin's components — nothing is duplicated.
 
-## Before you publish
-
-- Create the GitHub repo at `github.com/nunoamorim99/cartographer` and push these files. Make sure the hidden `.claude-plugin/` folder is included — the plugin and marketplace depend on it.
-- Drop your cover image into **`assets/cover.png`** (this landing page). If you want it inside the packaged skill too, replace `skills/cartographer/docs/assets/cover.png` — same filename, and both READMEs pick it up.
-- Optional: confirm the `license` (currently MIT) and add a `LICENSE` file if you want one.
-- Verify on your machine: `/plugin marketplace add nunoamorim99/cartographer` then `/plugin install cartographer@nunoamorim99`.
-
 ## Credits
 
 Fonts bundled with the skill: **Spectral** (© Production Type) and **Fira Sans** (© The Mozilla Foundation & Telefónica), both under the SIL Open Font License 1.1.
