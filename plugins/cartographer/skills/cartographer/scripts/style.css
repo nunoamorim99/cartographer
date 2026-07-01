@@ -1,0 +1,209 @@
+/*
+  style.css — Cartographer stakeholder documents, black & white print template.
+
+  Typography: Spectral (body serif, by Production Type — designed for legible
+  screen + print reading) and Fira Sans (headings, humanist sans). Both are bundled
+  in scripts/fonts/ (SIL Open Font License) so output is identical on every machine and
+  never depends on what fonts the host has installed. DejaVu is kept only as a safety
+  fallback. No colour — hierarchy is carried by weight, rules, and white space.
+
+  The footer wordmark (lower-left) is injected at render time by build_pdf.py (--wordmark).
+*/
+
+/* ---------- Bundled fonts ---------- */
+
+@font-face { font-family: "CartoSerif"; src: url("fonts/Spectral-Regular.ttf");    font-weight: 400; font-style: normal; }
+@font-face { font-family: "CartoSerif"; src: url("fonts/Spectral-Italic.ttf");     font-weight: 400; font-style: italic; }
+@font-face { font-family: "CartoSerif"; src: url("fonts/Spectral-Bold.ttf");       font-weight: 700; font-style: normal; }
+@font-face { font-family: "CartoSerif"; src: url("fonts/Spectral-BoldItalic.ttf"); font-weight: 700; font-style: italic; }
+
+@font-face { font-family: "CartoSans";  src: url("fonts/FiraSans-Medium.ttf");     font-weight: 500; font-style: normal; }
+@font-face { font-family: "CartoSans";  src: url("fonts/FiraSans-SemiBold.ttf");   font-weight: 600; font-style: normal; }
+@font-face { font-family: "CartoSans";  src: url("fonts/FiraSans-Bold.ttf");       font-weight: 700; font-style: normal; }
+
+/* ---------- Page ---------- */
+
+@page {
+  size: A4;
+  margin: 22mm 25mm 22mm 25mm;   /* narrower measure than before for easier reading */
+
+  @bottom-right {
+    content: counter(page) " / " counter(pages);
+    font-family: "CartoSans", "DejaVu Sans", sans-serif;
+    font-size: 8pt;
+    color: #555;
+  }
+}
+
+html { font-size: 11pt; }
+
+body {
+  font-family: "CartoSerif", "DejaVu Serif", Georgia, serif;
+  color: #1a1a1a;              /* soft black — gentler than pure #000 for long reading */
+  line-height: 1.58;
+  margin: 0;
+  padding: 0;
+  hyphens: auto;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---------- Headings ---------- */
+
+h1, h2, h3, h4 {
+  font-family: "CartoSans", "DejaVu Sans", sans-serif;
+  color: #000;
+  page-break-after: avoid;
+  line-height: 1.22;
+}
+
+h1 {
+  font-size: 24pt;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  margin: 0 0 3pt 0;
+  padding-bottom: 8pt;
+  border-bottom: 2pt solid #000;
+}
+
+h2 {
+  font-size: 14.5pt;
+  font-weight: 600;
+  margin: 27pt 0 9pt 0;
+  padding-bottom: 4pt;
+  border-bottom: 0.5pt solid #c4c4c4;
+}
+
+h3 {
+  font-size: 12pt;
+  font-weight: 600;
+  margin: 18pt 0 6pt 0;
+}
+
+h4 {
+  font-size: 10.5pt;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  margin: 14pt 0 4pt 0;
+}
+
+/* ---------- Subtitle ---------- */
+
+.subtitle {
+  font-family: "CartoSerif", "DejaVu Serif", serif;
+  font-style: italic;
+  font-size: 10.5pt;
+  color: #555;
+  margin: 0 0 6pt 0;
+}
+
+/* ---------- "What's new" banner ---------- */
+
+.whats-new {
+  border: 0.75pt solid #000;
+  padding: 9pt 13pt;
+  margin: 14pt 0 18pt 0;
+  page-break-inside: avoid;
+}
+.whats-new h2, .whats-new h3 {
+  font-family: "CartoSans", "DejaVu Sans", sans-serif;
+  margin: 0 0 5pt 0;
+  border: none;
+  padding: 0;
+  font-size: 9.5pt;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.whats-new ul { margin: 0; }
+
+/* ---------- Body text ---------- */
+
+p {
+  margin: 0 0 9.5pt 0;
+  text-align: justify;
+  orphans: 2;
+  widows: 2;
+}
+
+strong { font-weight: 700; }
+em { font-style: italic; }
+
+/* ---------- Lists ---------- */
+
+ul, ol {
+  margin: 0 0 9.5pt 0;
+  padding-left: 17pt;
+}
+
+li {
+  margin-bottom: 5pt;
+  padding-left: 4pt;
+  text-align: justify;
+}
+
+ul li::marker {
+  content: "•  ";
+  color: #666;            /* quiet marker so bolded labels lead the eye */
+}
+ol li::marker {
+  font-family: "CartoSans", sans-serif;
+  color: #666;
+  font-size: 10pt;
+}
+
+/* ---------- Takeaway / "In short" blockquote ---------- */
+
+blockquote {
+  margin: 13pt 0;
+  padding: 3pt 0 3pt 15pt;
+  border-left: 2.5pt solid #000;
+  font-style: italic;
+  color: #2a2a2a;
+}
+blockquote p { margin: 0; text-align: left; }
+
+/* ---------- Comparison table ---------- */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 13pt 0 16pt 0;
+  font-size: 10pt;
+  page-break-inside: avoid;
+}
+
+thead th {
+  background: #000;
+  color: #fff;
+  font-family: "CartoSans", "DejaVu Sans", sans-serif;
+  font-weight: 600;
+  text-align: left;
+  padding: 8pt 11pt;
+  font-size: 9pt;
+  letter-spacing: 0.3px;
+}
+
+tbody td {
+  padding: 8pt 11pt;
+  border-bottom: 0.5pt solid #dcdcdc;
+  vertical-align: top;
+  line-height: 1.42;
+}
+
+tbody tr:nth-child(even) { background: #f5f5f5; }
+
+/* ---------- Rule between sections ---------- */
+
+hr { border: none; border-top: 0.5pt solid #cfcfcf; margin: 20pt 0; }
+
+/* ---------- Code ---------- */
+
+code {
+  font-family: "DejaVu Sans Mono", monospace;
+  font-size: 9pt;
+  background: #f0f0f0;
+  padding: 0.5pt 3pt;
+  border-radius: 2pt;
+}
+
+h2 + p, h3 + p, h4 + p { page-break-before: avoid; }
