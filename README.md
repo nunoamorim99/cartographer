@@ -1,4 +1,22 @@
-![Cartographer — stakeholder documentation, mapped from your repositories](assets/cover.png)
+<p align="center">
+  <img src="assets/cover.png" alt="Cartographer — stakeholder documentation, mapped from your repositories" width="100%">
+</p>
+
+<h1 align="center">Cartographer</h1>
+
+<p align="center">
+  <b>Stakeholder documentation, mapped from your repositories —<br/>
+  what each product does and how it fits, in Markdown &amp; PDF.</b>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Output-Markdown_%2B_PDF-10b981?style=flat-square&labelColor=2d2d2d" alt="Output: Markdown + PDF" />
+  <img src="https://img.shields.io/badge/Git-read--only-06b6d4?style=flat-square&labelColor=2d2d2d" alt="Git: read-only" />
+  <img src="https://img.shields.io/badge/Typography-Spectral_%2B_Fira-a855f7?style=flat-square&labelColor=2d2d2d" alt="Typography: Spectral + Fira" />
+  <img src="https://img.shields.io/badge/License-MIT-64748b?style=flat-square&labelColor=2d2d2d" alt="License: MIT" />
+</p>
+
+---
 
 # Cartographer
 
