@@ -1,4 +1,4 @@
-![Cartographer — stakeholder documentation, mapped from your repositories](docs/assets/cover.png)
+![Cartographer — stakeholder documentation, mapped from your repositories](assets/cover.png)
 
 # Cartographer
 
