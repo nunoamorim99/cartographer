@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/cover.png" alt="Cartographer — stakeholder documentation, mapped from your repositories" width="100%">
+  <img src="assets/cover.png" alt="Cartographer" width="100%" />
 </p>
 
 <h1 align="center">Cartographer</h1>
@@ -10,6 +10,7 @@
 </p>
 
 <p align="center">
+  <img src="https://img.shields.io/badge/Claude_Code-Skill_%2B_Plugin-8b5cf6?style=flat-square&labelColor=2d2d2d" alt="Claude Code: Skill + Plugin" />
   <img src="https://img.shields.io/badge/Output-Markdown_%2B_PDF-10b981?style=flat-square&labelColor=2d2d2d" alt="Output: Markdown + PDF" />
   <img src="https://img.shields.io/badge/Git-read--only-06b6d4?style=flat-square&labelColor=2d2d2d" alt="Git: read-only" />
   <img src="https://img.shields.io/badge/Typography-Spectral_%2B_Fira-a855f7?style=flat-square&labelColor=2d2d2d" alt="Typography: Spectral + Fira" />
@@ -18,11 +19,7 @@
 
 ---
 
-# Cartographer
-
-**Turn the repositories in a project into clear, non-technical stakeholder documentation — without anyone on a dispersed team having to announce what they built.**
-
-Cartographer is a **Claude Code skill** (packaged here also as an installable **plugin**). It scans a project's repositories, reads what each one actually does for users, and writes audience-appropriate documents — Markdown + polished black-and-white PDF — describing *what exists and why it matters*, never how it's built. It's read-only, audience-aware, and records where every fact came from.
+Cartographer is a **Claude Code skill** (packaged here also as an installable **plugin**). It scans a project's repositories, reads what each one actually does for users, and writes audience-appropriate documents — Markdown + polished black-and-white PDF — describing *what exists and why it matters*, never how it's built. It turns the repositories in a project into clear, non-technical stakeholder documentation without anyone on a dispersed team having to announce what they built. It's read-only, audience-aware, and records where every fact came from.
 
 ---
 
@@ -36,7 +33,7 @@ Cartographer is a **Claude Code skill** (packaged here also as an installable **
 - **`/generate [scope] [audience] [lang]`** — writes/refreshes the docs from the confirmed map (defaults: all products, `marketing` audience, your configured language). `audience` is `marketing` (comms / external) or `management` (leadership status).
 - **`/doc-status`** — a read-only staleness check: what changed since last documented, and any repo not yet covered.
 
-It produces an **ecosystem overview** (what the products are and how they fit), **one document per product** (what it does, who it's for, how it connects), and an **actions-first assessment** of project status — all in Markdown and PDF, in your configured language(s). Full details, output layout, and design principles are in the skill's own README: **[`skills/cartographer/README.md`](skills/cartographer/README.md)**.
+It produces an **ecosystem overview** (what the products are and how they fit), **one document per product** (what it does, who it's for, how it connects), and an **actions-first assessment** of project status — all in Markdown and PDF, in your configured language(s). Full details, output layout, and design principles are in the skill's own README: **[`plugins/cartographer/skills/cartographer/README.md`](plugins/cartographer/skills/cartographer/README.md)**.
 
 ---
 
@@ -60,7 +57,7 @@ The commands appear in the `/` menu namespaced under the plugin — `/cartograph
 Copy the skill folder into your skills directory (project-level `.claude/skills/`, or `~/.claude/skills/` for all projects):
 
 ```bash
-cp -r skills/cartographer ~/.claude/skills/
+cp -r plugins/cartographer/skills/cartographer ~/.claude/skills/
 ```
 
 Then just describe what you want ("assess the project", "generate the stakeholder docs") — the skill activates on its own. No commands required.
@@ -70,7 +67,7 @@ Then just describe what you want ("assess the project", "generate the stakeholde
 To get `/assess`, `/generate`, `/doc-status` in the `/` menu without the plugin, drop the command files in too:
 
 ```bash
-mkdir -p .claude/commands && cp commands/*.md .claude/commands/
+mkdir -p .claude/commands && cp plugins/cartographer/commands/*.md .claude/commands/
 ```
 
 ---
@@ -84,16 +81,17 @@ Claude Code. PDF generation needs the Python packages `markdown` and `weasyprint
 ```
 .
 ├── .claude-plugin/
-│   ├── plugin.json          # plugin manifest (this repo is the plugin)
-│   └── marketplace.json     # marketplace catalog (source: ".")
-├── skills/
-│   └── cartographer/        # THE SKILL — self-contained, bundled fonts
-├── commands/                # assess.md, generate.md, doc-status.md
-├── assets/cover.png         # cover for this landing page
+│   └── marketplace.json                 # marketplace catalog (source: ./plugins/cartographer)
+├── plugins/cartographer/
+│   ├── .claude-plugin/plugin.json       # plugin manifest
+│   ├── skills/cartographer/             # THE SKILL — self-contained, bundled fonts
+│   ├── commands/                        # assess.md, generate.md, doc-status.md
+│   └── README.md
+├── assets/cover.png                     # cover for this landing page
 └── README.md
 ```
 
-Single source of truth: the skill lives once, at `skills/cartographer/`. The plugin is this repository, so the top-level `skills/` and `commands/` folders *are* the plugin's components — nothing is duplicated.
+Single source of truth: the skill lives once, at `plugins/cartographer/skills/cartographer/`. All three install routes read from that one copy — nothing is duplicated.
 
 ## Credits
 
