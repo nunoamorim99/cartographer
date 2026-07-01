@@ -1,0 +1,20 @@
+{
+  "name": "cartographer",
+  "version": "1.0.0",
+  "description": "Generate stakeholder documentation from a project's repositories — what each product does and how it fits together, as black-and-white Markdown + PDF. Read-only; audience-aware; provenance-tracked.",
+  "author": {
+    "name": "Nuno Amorim",
+    "email": "nuno22amorim@gmail.com"
+  },
+  "homepage": "https://github.com/nunoamorim99/cartographer",
+  "repository": "https://github.com/nunoamorim99/cartographer",
+  "license": "MIT",
+  "keywords": [
+    "documentation",
+    "stakeholder",
+    "product-management",
+    "pdf",
+    "repositories",
+    "cartographer"
+  ]
+}
