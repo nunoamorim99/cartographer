@@ -39,18 +39,20 @@ It produces an **ecosystem overview** (what the products are and how they fit), 
 
 ## Install
 
-Pick whichever fits. This repo is both the **skill** (at `skills/cartographer/`) and a **plugin marketplace** that serves it.
+Cartographer is published in the **[`nunoamorim99`](https://github.com/nunoamorim99/claude-skills)** plugin marketplace, alongside Nuno Amorim's other plugins. Pick whichever install route fits.
 
 ### 1. As a plugin, via the marketplace — recommended
 
 One command installs the skill *and* the slash commands, and keeps them updatable:
 
 ```
-/plugin marketplace add nunoamorim99/cartographer
+/plugin marketplace add nunoamorim99/claude-skills
 /plugin install cartographer@nunoamorim99
 ```
 
-The commands appear in the `/` menu namespaced under the plugin — `/cartographer:assess`, `/cartographer:generate`, `/cartographer:doc-status` — and the skill also activates on its own when you ask for stakeholder docs. Update later with `/plugin marketplace update`.
+Already have the `nunoamorim99` marketplace? Skip the first line, run `/plugin marketplace update nunoamorim99`, then install.
+
+The commands appear in the `/` menu namespaced under the plugin — `/cartographer:assess`, `/cartographer:generate`, `/cartographer:doc-status` — and the skill also activates on its own when you ask for stakeholder docs. Update later with `/plugin marketplace update nunoamorim99`.
 
 ### 2. As a skill only — manual
 
@@ -80,9 +82,7 @@ Claude Code. PDF generation needs the Python packages `markdown` and `weasyprint
 
 ```
 .
-├── .claude-plugin/
-│   └── marketplace.json                 # marketplace catalog (source: ./plugins/cartographer)
-├── plugins/cartographer/
+├── plugins/cartographer/                # listed in the "nunoamorim99" marketplace (nunoamorim99/claude-skills)
 │   ├── .claude-plugin/plugin.json       # plugin manifest
 │   ├── skills/cartographer/             # THE SKILL — self-contained, bundled fonts
 │   ├── commands/                        # assess.md, generate.md, doc-status.md
