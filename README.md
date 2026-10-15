@@ -72,6 +72,17 @@ To get `/assess`, `/generate`, `/doc-status` in the `/` menu without the plugin,
 mkdir -p .claude/commands && cp plugins/cartographer/commands/*.md .claude/commands/
 ```
 
+### 4. Download a zip — no marketplace, or Claude.ai
+
+Every download is on the **[latest release](https://github.com/nunoamorim99/cartographer/releases/latest)** page — no need to clone the repo:
+
+| Where | Download | How |
+|---|---|---|
+| Claude Code without a marketplace (offline, corporate policy, or to read the files first) | `cartographer-<version>.zip` | Unzip into your project's `.claude/` folder — or `~/.claude/` for every project. Restart Claude Code. |
+| Claude.ai **web or desktop** | `cartographer-skill-<version>.zip` | Upload via *Customize → Skills*. Slash commands are Claude Code only; on the web, just ask. |
+
+> Manual installs don't auto-update — grab the newer zip when a release ships. The marketplace route updates itself.
+
 ---
 
 ## Requirements
@@ -87,11 +98,24 @@ Claude Code. PDF generation needs the Python packages `markdown` and `weasyprint
 │   ├── skills/cartographer/             # THE SKILL — self-contained, bundled fonts
 │   ├── commands/                        # assess.md, generate.md, doc-status.md
 │   └── README.md
+├── scripts/build_bundles.py         # builds the release zips from the plugin
+├── .github/workflows/               # validate (every push) · release (on a v* tag)
+├── INSTALL.txt                      # ships inside the drop-in zip
 ├── assets/cover.png                     # cover for this landing page
+├── LICENSE
 └── README.md
 ```
 
-Single source of truth: the skill lives once, at `plugins/cartographer/skills/cartographer/`. All three install routes read from that one copy — nothing is duplicated.
+Single source of truth: the skill lives once, at `plugins/cartographer/skills/cartographer/`. Every install route reads from that one copy — nothing is duplicated; the release zips are built from it.
+
+## Cutting a release
+
+The zips are built from `plugins/cartographer/` by [`scripts/build_bundles.py`](scripts/build_bundles.py) and are never committed (`dist/` is gitignored). To publish a version:
+
+1. Bump `version` in `plugins/cartographer/.claude-plugin/plugin.json`, commit and push.
+2. Tag it: `git tag v1.0.1 && git push origin v1.0.1`
+
+The `release` workflow checks the tag matches `plugin.json`, builds both zips and attaches them to a GitHub Release. The `validate` workflow builds and checks them on every push. Marketplace users don't need a release — they get `main` with `/plugin marketplace update nunoamorim99`.
 
 ## Credits
 

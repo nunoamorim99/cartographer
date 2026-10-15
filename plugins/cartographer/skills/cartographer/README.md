@@ -59,13 +59,14 @@ See **[COMMANDS.md](COMMANDS.md)** for the full command reference.
 
 ## Installation
 
-**The skill** — place the `cartographer/` folder in your Claude Code skills directory (`.claude/skills/cartographer/`), or install the packaged `cartographer.skill` / `cartographer.zip`.
+Recommended — from the `nunoamorim99` plugin marketplace, which installs the skill and the commands together and keeps them updated:
 
-**The slash commands (optional but recommended)** — copy the command files into `.claude/commands/` so `/assess`, `/generate`, and `/doc-status` appear in the `/` menu with hints:
-
-```bash
-mkdir -p .claude/commands && cp commands/*.md .claude/commands/
 ```
+/plugin marketplace add nunoamorim99/claude-skills
+/plugin install cartographer@nunoamorim99
+```
+
+Installed this way the commands are `/cartographer:assess`, `/cartographer:generate` and `/cartographer:doc-status`. For the manual and Claude.ai routes (release zips), see the [repository README](../../../../README.md#install).
 
 Then run Cartographer from any project root — it operates on the current working directory and stores that project's settings and output under `Stakeholder-Docs/`.
 

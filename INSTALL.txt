@@ -1,0 +1,28 @@
+Cartographer — installing
+
+You are reading this inside the drop-in bundle, so you already have the files you need.
+
+FULL install (skill + slash commands)
+  Unzip this bundle into your project's  .claude/  folder, so you end up with:
+    .claude/skills/cartographer/
+    .claude/commands/cartographer/*.md
+  Use ~/.claude/ instead to install for all your projects.
+  Restart Claude Code. Commands are namespaced: /cartographer:assess
+
+SKILL ONLY (no slash commands, driven by natural language)
+  Copy just the  skills/cartographer/  folder into  .claude/skills/
+
+FIRST RUN
+  From the project root (the folder that holds your repositories):
+  /cartographer:assess       read-only scan, proposes the product map
+  /cartographer:generate     writes the stakeholder docs (.md + .pdf) to Stakeholder-Docs/
+  /cartographer:doc-status   what changed since the docs were last written
+
+---
+Prefer automatic updates? Install via the marketplace instead and you get new versions
+without re-downloading:
+
+  /plugin marketplace add nunoamorim99/claude-skills
+  /plugin install cartographer@nunoamorim99
+
+Latest bundles: https://github.com/nunoamorim99/cartographer/releases/latest
