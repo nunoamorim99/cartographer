@@ -1,8 +1,9 @@
 <p align="center">
-  <img src="assets/cover.png" alt="Cartographer" width="100%" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/logo/cartographer-horizontal-color-dark.svg">
+    <img src="assets/logo/cartographer-horizontal-color-light.svg" alt="Cartographer" height="72">
+  </picture>
 </p>
-
-<h1 align="center">Cartographer</h1>
 
 <p align="center">
   <b>Stakeholder documentation, mapped from your repositories —<br/>
@@ -101,7 +102,9 @@ Claude Code. PDF generation needs the Python packages `markdown` and `weasyprint
 ├── scripts/build_bundles.py         # builds the release zips from the plugin
 ├── .github/workflows/               # validate (every push) · release (on a v* tag)
 ├── INSTALL.txt                      # ships inside the drop-in zip
-├── assets/cover.png                     # cover for this landing page
+├── assets/
+│   ├── logo/                            # README logo (light + dark lockups)
+│   └── cover.png                        # social preview image
 ├── LICENSE
 └── README.md
 ```
